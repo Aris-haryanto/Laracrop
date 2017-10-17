@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Arisharyanto\Laracrop\Controllers;
+namespace Arisharyanto\Laracrop;
  
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

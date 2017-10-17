@@ -84,7 +84,7 @@ class LaracropServiceProvider extends ServiceProvider
 
     public function setupRoutes(Router $router)
     {
-        $router->group(['namespace' => 'Arisharyanto\Laracrop\Controllers'], function ($router) {
+        $router->group(['namespace' => 'Arisharyanto\Laracrop'], function ($router) {
             Route::group(['prefix' => config('laracrop.route_prefix')], function () {
                 Route::post(config('laracrop.upload_url'), 'Laracrop@uploadAjax');
             });
