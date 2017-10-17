@@ -1,0 +1,33 @@
+{
+    "name": "arisharyanto/laracrop",
+    "description": "Libraries to create crop image function",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "crop",
+        "laracrop",
+        "photocrop",
+        "photo"
+    ],
+    "homepage": "https://github.com/Aris-haryanto/Laracrop",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aris Haryanto",
+            "email": "arisharyanto32@gmail.com",
+            "homepage": "https://arindasoft.wordpress.com/",
+            "role": "IT Lead Developer"
+        }
+    ],
+    "require": {
+        "php" : "~5.5|~7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Arisharyanto\\Laracrop\\": "src"
+        },
+        "files": [
+            "vendor/arisharyanto/laracrop/src/Helpers/helper.php"
+        ]
+    }
+}
