@@ -21,7 +21,7 @@ class LaracropServiceProvider extends ServiceProvider
             __DIR__.'/config/laracrop.php', 'laracrop'
         );
         $this->publishes([__DIR__.'/config' => config_path()], 'config');
-        $this->publishes([__DIR__.'/Plugins' => public_path('vendor/laracrop')], 'public');
+        $this->publishes([__DIR__.'/plugins' => public_path('vendor/laracrop')], 'public');
 
         $this->setupRoutes($this->app->router);
 
