@@ -58,7 +58,7 @@ and add this inside your function
   #call this function at the end of your function to clean temporary file when your uploading image to crop 
   Laracrop::cleanCropTemp();
 ```
-]
+
 
 ### License
 
