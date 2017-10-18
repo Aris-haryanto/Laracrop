@@ -25,9 +25,6 @@
     "autoload": {
         "psr-4": {
             "Arisharyanto\\Laracrop\\": "src"
-        },
-        "files": [
-            "vendor/arisharyanto/laracrop/src/Helpers/helper.php"
-        ]
+        }
     }
 }
