@@ -1,11 +1,13 @@
 # Laracrop
 Simple crop image Laravel with jCrop
 
+![alt crop](https://github.com/Aris-haryanto/Laracrop/blob/master/crop.png)
+
 ### How to install
 - Run in your terminal:
 ```
 $ cd yourprojectdirectory
-$ composer require arisharyanto/laracrop:dev-master
+$ composer require arisharyanto/laracrop
 ```
 - Add the service providers in config/app.php:
 ```
@@ -59,6 +61,8 @@ and add this inside your function
   Laracrop::cleanCropTemp();
 ```
 
+### Credits
+- [https://github.com/tapmodo/Jcrop/](https://github.com/tapmodo/Jcrop/)
 
 ### License
 
