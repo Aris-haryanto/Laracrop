@@ -61,6 +61,8 @@ and add this inside your function
   Laracrop::cleanCropTemp();
 ```
 
+### Credits
+- [https://github.com/tapmodo/Jcrop/](https://github.com/tapmodo/Jcrop/)
 
 ### License
 
