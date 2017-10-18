@@ -5,7 +5,7 @@ Simple crop image Laravel with jCrop
 - Run in your terminal:
 ```
 $ cd yourprojectdirectory
-$ composer require arisharyanto/laracrop:dev-master
+$ composer require arisharyanto/laracrop
 ```
 - Add the service providers in config/app.php:
 ```
