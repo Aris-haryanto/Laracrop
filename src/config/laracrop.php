@@ -1,14 +1,14 @@
 <?php
 
 return [
-	'route_prefix' => "laracrop", 		# route prefix to ajax url
-	'upload_url' => "upload/image",		# route url to ajax upload url route_prefix/upload_url
-	'path_upload' => "public/filetmp", 	# where you put file upload
-	'image_url' => "filetmp", 			# image url when ajax callback showing image
+	'route_prefix' => "laracrop", 		
+	'upload_url' => "upload/image",		
+	'path_upload' => "public/filetmp", 	
+	'image_url' => "filetmp", 			
 	
-  	'aspectratio' => "1",
+  	'aspectratio' => "0",
   	'minsize' => "[200, 200]",
   	'maxsize' => "[500, 500]",
-  	'bgcolor' => "red",
+  	'bgcolor' => "black",
   	'bgopacity' => "0.6"
 ];
