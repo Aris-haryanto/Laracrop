@@ -1,6 +1,8 @@
 # Laracrop
 Simple crop image Laravel with jCrop
 
+![alt crop](https://github.com/Aris-haryanto/Laracrop/blob/master/crop.png)
+
 ### How to install
 - Run in your terminal:
 ```
