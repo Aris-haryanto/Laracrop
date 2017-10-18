@@ -24,9 +24,9 @@ $ php artisan vendor:publish --provider="Arisharyanto\Laracrop\LaracropServicePr
     'path_upload' => "public/filetmp",    # where you put file upload
     'image_url' => "filetmp",             # image url when ajax callback showing image
 
-    'aspectratio' => "1",                 # 1 to set aspectratio true 0 
-    'minsize' => "[200, 200]",            # Minimum selection size [ width, height ]
-    'maxsize' => "[500, 500]",            # Maxium selection size [ width, height ]
+    'aspectratio' => "1",                 # 1 to set true and 0 to false
+    'minsize' => "[200, 200]",            # Minimum selection size [ width, height ] set 0 to remove min size
+    'maxsize' => "[500, 500]",            # Maxium selection size [ width, height ] set 0 to remove max size
     'bgcolor' => "black",                 # Color value for background shading
     'bgopacity' => "0.6"                  # Opacity value for background shading
 ```
