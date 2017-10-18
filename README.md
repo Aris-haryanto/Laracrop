@@ -15,7 +15,7 @@ Arisharyanto\Laracrop\LaracropServiceProvider::class,
 ```
 $ php artisan vendor:publish --provider="Arisharyanto\Laracrop\LaracropServiceProvider"  
 ```
-- Setup the config file here
+- Setup the default config in `config/laracrop.php` 
 ```
     'route_prefix' => "laracrop",         # route prefix to ajax url
     'upload_url' => "upload/image",       # route url to ajax upload url route_prefix/upload_url
@@ -36,7 +36,7 @@ In your blade view
 # adding laracrop css set true to embed bootstrap css or set empty the parameters to not embeded
 @laracropCss(true)
 
-  # you can add custom setting for some croping
+  # you can add custom setting for some croping 
   @laracrop(name=desktop | aspectratio=1 | minsize=[300, 300] | bgcolor=black | bgopacity=0.7) 
   
   # or you just write with name parameters like this to set default config
