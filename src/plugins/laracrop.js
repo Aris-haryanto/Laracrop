@@ -25,7 +25,7 @@ $(document).ready(function() {
     function initJcrop(thisElem, aspectratio, minsize, maxsize, bgcolor, bgopacity){
 
         var d = document, ge = 'getElementById';
-          
+
           thisElem.find('.interface').on('cropmove cropend',function(e,s,c){
             // alert(c.x+' # '+c.y+' # '+c.w+' # '+c.h);
             thisElem.find('.crop-x').val(c.x);
@@ -33,7 +33,7 @@ $(document).ready(function() {
             thisElem.find('.crop-w').val(c.w);
             thisElem.find('.crop-h').val(c.h);
           });
-          
+
           // Most basic attachment example
           thisElem.find('.target').Jcrop({
             edge: {n:2,s:-2,e:-2,w:2},
@@ -44,7 +44,7 @@ $(document).ready(function() {
             bgColor: bgcolor,
             bgOpacity: bgopacity,
           });
-          
+
           thisElem.find('.resize-crop').on('click',function(e){
             thisElem.find('.target').Jcrop('api').animateTo([
               parseInt(thisElem.find('.crop-x').val()),
@@ -68,7 +68,7 @@ $(document).ready(function() {
       var uploadurl = $(this).data('uploadurl');
       var inputName = $(this).attr('name');
       var thisElem = $(this).closest('.showimage');
-      
+
       var file = thisImg[0].files[0];
 
       img = new Image();
@@ -76,15 +76,20 @@ $(document).ready(function() {
 
       img.onload = function() {
 
-        if(aspectratio != 0){
+        if(aspectratio == "1"){
           var getImgWidth = this.width;
           var getImgHeight = this.height;
           aspectratio = parseFloat(getImgWidth/getImgHeight);
+        }else if(aspectratio != "0"){
+          var ratio = aspectratio.split('/');
+          var getImgWidth = this.width;
+          var getImgHeight = this.height;
+          aspectratio = parseFloat(ratio[0]/ratio[1]);
         }
 
         var data = new FormData();
         data.append('image', thisImg[0].files[0]);
-        
+
         $.ajax({
             url: uploadurl,
             data: data,
