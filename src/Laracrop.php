@@ -2,7 +2,7 @@
 
 
 namespace Arisharyanto\Laracrop;
- 
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use URL;
@@ -15,10 +15,13 @@ class Laracrop extends Controller {
 	}
 
 	static function cropImage($imageOpt) {
+            // dd($imageOpt);
 
-			$imageOpt = (object) $imageOpt;
+			if(!$imageOpt){
+                dd('Image Not Found, maybe you forgot to choose image');
+            }
 
-			// dd($imageOpt);
+            $imageOpt = (object) $imageOpt;
 
 			$imgUrl = base_path() . '/' . config('laracrop.path_upload') . '/tmp/' . $imageOpt->imgUrl;
 			// original sizes
@@ -33,7 +36,7 @@ class Laracrop extends Controller {
 			// resized sizes
 			$imgW = $imageOpt->oriw;
 			$imgH = $imageOpt->orih;
-			
+
 			// rotation angle
 			$angle = 0;
 
@@ -74,7 +77,7 @@ class Laracrop extends Controller {
 				$response = Array(
 				    "status" => 'error',
 				    "message" => 'Can`t write cropped File'
-			    );	
+			    );
 			}else{
 
 				// $dst_r = ImageCreateTrueColor( $imgW, $imgH );
@@ -82,14 +85,14 @@ class Laracrop extends Controller {
 				// imagecopyresampled($dst_r,$img_r,0,0,$imgX1,$imgY1,
 				// $imgW,$imgH,$cropW,$cropH);
 				// imagejpeg($dst_r, $output_filename.$type, $jpeg_quality);
-				
+
 			    //resize the original image to size of editor
 			    $resizedImage = imagecreatetruecolor($imgW, $imgH);
 
                 //TRANSPARANT
-                imagealphablending($resizedImage, true); 
-                $transparent = imagecolorallocatealpha( $resizedImage, 0, 0, 0, 0 ); 
-                imagefill( $resizedImage, 0, 0, $transparent ); 
+                imagealphablending($resizedImage, true);
+                $transparent = imagecolorallocatealpha( $resizedImage, 0, 0, 0, 0 );
+                imagefill( $resizedImage, 0, 0, $transparent );
                 imagealphablending($resizedImage, false);
                 imagesavealpha($resizedImage, true);
 
@@ -106,9 +109,9 @@ class Laracrop extends Controller {
 				$cropped_rotated_image = imagecreatetruecolor($imgW, $imgH);
 
                 //TRANSPARANT
-                imagealphablending($cropped_rotated_image, true); 
-                $transparent = imagecolorallocatealpha( $cropped_rotated_image, 0, 0, 0, 0 ); 
-                imagefill( $cropped_rotated_image, 0, 0, $transparent ); 
+                imagealphablending($cropped_rotated_image, true);
+                $transparent = imagecolorallocatealpha( $cropped_rotated_image, 0, 0, 0, 0 );
+                imagefill( $cropped_rotated_image, 0, 0, $transparent );
                 imagealphablending($cropped_rotated_image, false);
                 imagesavealpha($cropped_rotated_image, true);
 
@@ -118,15 +121,15 @@ class Laracrop extends Controller {
 				$final_image = imagecreatetruecolor($cropW, $cropH);
 
                 //TRANSPARANT
-                imagealphablending($final_image, true); 
-                $transparent = imagecolorallocatealpha( $final_image, 0, 0, 0, 0 ); 
-                imagefill( $final_image, 0, 0, $transparent ); 
+                imagealphablending($final_image, true);
+                $transparent = imagecolorallocatealpha( $final_image, 0, 0, 0, 0 );
+                imagefill( $final_image, 0, 0, $transparent );
                 imagealphablending($final_image, false);
                 imagesavealpha($final_image, true);
 
 				imagecolortransparent($final_image, imagecolorallocate($final_image, 0, 0, 0));
 				imagecopyresampled($final_image, $cropped_rotated_image, 0, 0, $imgX1, $imgY1, $cropW, $cropH, $cropW, $cropH);
-                
+
 				//finally output png image
                 if($type == '.png'){
 				    imagepng($final_image, $output_filename.$type);

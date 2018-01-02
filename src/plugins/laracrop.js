@@ -5,22 +5,6 @@
 
 $(document).ready(function() {
 
-//LOAD FILE
-    // var jsfile = document.createElement('script');
-    // jsfile.src = 'jCrop/js/Jcrop.js';
-    // document.head.appendChild(jsfile);
-
-    // var cssfile = document.createElement('link');
-    // cssfile.rel = "stylesheet";
-    // cssfile.href = 'jCrop/css/Jcrop.css';
-    // document.head.appendChild(cssfile);
-
-    // var cssfile2 = document.createElement('link');
-    // cssfile2.rel = "stylesheet";
-    // cssfile2.href = 'jCrop/css/demos.css';
-    // document.head.appendChild(cssfile2);
-
-
     //CROP IMAGE
     function initJcrop(thisElem, aspectratio, minsize, maxsize, bgcolor, bgopacity, boxwidth, boxheight){
 
