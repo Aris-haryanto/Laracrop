@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 
     //CROP IMAGE
-    function initJcrop(thisElem, aspectratio, minsize, maxsize, bgcolor, bgopacity){
+    function initJcrop(thisElem, aspectratio, minsize, maxsize, bgcolor, bgopacity, boxwidth, boxheight){
 
         var d = document, ge = 'getElementById';
 
@@ -43,9 +43,11 @@ $(document).ready(function() {
             maxSize: maxsize,
             bgColor: bgcolor,
             bgOpacity: bgopacity,
+            boxWidth: boxwidth,
+            boxHeight: boxheight
           });
 
-          thisElem.find('.resize-crop').on('click',function(e){
+          thisElem.find('.crop-size').on('keyup',function(e){
             thisElem.find('.target').Jcrop('api').animateTo([
               parseInt(thisElem.find('.crop-x').val()),
               parseInt(thisElem.find('.crop-y').val()),
@@ -64,6 +66,8 @@ $(document).ready(function() {
       var maxsize = $(this).data('maxsize');
       var bgcolor = $(this).data('bgcolor');
       var bgopacity = $(this).data('bgopacity');
+      var boxwidth = $(this).data('boxwidth');
+      var boxheight = $(this).data('boxheight');
 
       var uploadurl = $(this).data('uploadurl');
       var inputName = $(this).attr('name');
@@ -107,20 +111,19 @@ $(document).ready(function() {
                                             <input type="hidden" name="'+inputName+'[y]" class="crop-y form-control" />\
                                             <div class="input-group">\
                                               <div class="input-group-addon">Width</div>\
-                                              <input type="text" name="'+inputName+'[w]" class="crop-w form-control" />\
+                                              <input type="text" name="'+inputName+'[w]" class="crop-size crop-w form-control" />\
                                             </div>\
                                             <div class="input-group">\
                                               <div class="input-group-addon">Height</div>\
-                                              <input type="text" name="'+inputName+'[h]" class="crop-h form-control" />\
+                                              <input type="text" name="'+inputName+'[h]" class="crop-size crop-h form-control" />\
                                             </div>\
-                                            <a href="#" class="btn btn-success resize-crop">Resize</a>\
                                           </div>\
                                           <input type="hidden" class="imgUrl" name="'+inputName+'[imgUrl]" value="'+data.filename+'" />\
                                           <input type="hidden" class="oriw" name="'+inputName+'[oriw]" value="'+data.width+'" />\
                                           <input type="hidden" class="orih" name="'+inputName+'[orih]" value="'+data.height+'" />\
                                           </div>');
 
-                initJcrop(thisElem.find('.block-crop'), aspectratio, minsize, maxsize, bgcolor, bgopacity);
+                initJcrop(thisElem.find('.block-crop'), aspectratio, minsize, maxsize, bgcolor, bgopacity, boxwidth, boxheight);
             }
         });
       };

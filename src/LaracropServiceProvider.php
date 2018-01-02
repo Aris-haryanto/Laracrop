@@ -55,7 +55,7 @@ class LaracropServiceProvider extends ServiceProvider
                     $exp = explode('=', $data);
                     $newArr[$exp[0]] = $exp[1];
                 }
-                
+
             }else{
                 $newArr['name'] = $option;
             }
@@ -67,6 +67,8 @@ class LaracropServiceProvider extends ServiceProvider
             $maxsize        = isset($newArr->maxsize) ? $newArr->maxsize : config('laracrop.maxsize');
             $bgcolor        = isset($newArr->bgcolor) ? $newArr->bgcolor : config('laracrop.bgcolor');
             $bgopacity      = isset($newArr->bgopacity) ? $newArr->bgopacity : config('laracrop.bgopacity');
+            $boxwidth       = isset($newArr->boxwidth) ? $newArr->boxwidth : config('laracrop.boxwidth');
+            $boxheight      = isset($newArr->boxheight) ? $newArr->boxheight : config('laracrop.boxheight');
 
             return '<div class="form-group showimage">
                       <label for="exampleInputEmail1">Image</label>
@@ -76,7 +78,9 @@ class LaracropServiceProvider extends ServiceProvider
                         data-minsize="'.$minsize.'"
                         data-maxsize="'.$maxsize.'"
                         data-bgcolor="'.$bgcolor.'"
-                        data-bgopacity="'.$bgopacity.'" 
+                        data-bgopacity="'.$bgopacity.'"
+                        data-boxwidth="'.$boxwidth.'"
+                        data-boxheight="'.$boxheight.'"
                         class="form-control">
                     </div>';
         });
