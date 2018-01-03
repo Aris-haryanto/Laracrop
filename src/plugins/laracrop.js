@@ -30,15 +30,6 @@ $(document).ready(function() {
             boxWidth: boxwidth,
             boxHeight: boxheight
           });
-
-          thisElem.find('.crop-size').on('keyup',function(e){
-            thisElem.find('.target').Jcrop('api').animateTo([
-              parseInt(thisElem.find('.crop-x').val()),
-              parseInt(thisElem.find('.crop-y').val()),
-              parseInt(thisElem.find('.crop-w').val()),
-              parseInt(thisElem.find('.crop-h').val())
-            ]);
-          });
     };
 
     $('.cropimage').change(function(){
@@ -91,16 +82,10 @@ $(document).ready(function() {
                 thisElem.prepend('<div class="block-crop">\
                                           <div class="interface" style="max-width: 100%; overflow-x: scroll; overflow-y: hidden;"><img class="target" src="'+data.url+'"></div>\
                                           <div class="form-group form-inline text-inputs"  style="margin-top: 20px;">\
-                                            <input type="hidden" name="'+inputName+'[x]" class="crop-x form-control" />\
-                                            <input type="hidden" name="'+inputName+'[y]" class="crop-y form-control" />\
-                                            <div class="input-group">\
-                                              <div class="input-group-addon">Width</div>\
-                                              <input type="text" name="'+inputName+'[w]" class="crop-size crop-w form-control" />\
-                                            </div>\
-                                            <div class="input-group">\
-                                              <div class="input-group-addon">Height</div>\
-                                              <input type="text" name="'+inputName+'[h]" class="crop-size crop-h form-control" />\
-                                            </div>\
+                                            <input type="hidden" name="'+inputName+'[x]" class="crop-x" />\
+                                            <input type="hidden" name="'+inputName+'[y]" class="crop-y" />\
+                                            <input type="hidden" name="'+inputName+'[w]" class="crop-size crop-w" />\
+                                            <input type="hidden" name="'+inputName+'[h]" class="crop-size crop-h" />\
                                           </div>\
                                           <input type="hidden" class="imgUrl" name="'+inputName+'[imgUrl]" value="'+data.filename+'" />\
                                           <input type="hidden" class="oriw" name="'+inputName+'[oriw]" value="'+data.width+'" />\

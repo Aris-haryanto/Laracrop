@@ -71,8 +71,7 @@ class LaracropServiceProvider extends ServiceProvider
             $boxheight      = isset($newArr->boxheight) ? $newArr->boxheight : config('laracrop.boxheight');
 
             return '<div class="form-group showimage">
-                      <label for="exampleInputEmail1">Image</label>
-                      <input type="file" class="cropimage" name="'.$name.'"
+                      <input type="file" class="cropimage form-control" name="'.$name.'"
                         data-uploadurl="'.$uploadUrl.'"
                         data-aspectratio="'.$aspectratio.'"
                         data-minsize="'.$minsize.'"
